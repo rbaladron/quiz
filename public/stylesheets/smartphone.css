@@ -1,6 +1,5 @@
 body {
   background: #333;
-
 }
 
 #page-wrap:after {
@@ -17,8 +16,4 @@ body {
 
 footer, input {
   font-size: large;
-}
-
-a {
-  color: #00B7FF;
 }

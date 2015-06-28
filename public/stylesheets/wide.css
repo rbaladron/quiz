@@ -1,6 +1,5 @@
 body {
   background: #999;
-
 }
 
 #page-wrap:after {
@@ -21,10 +20,6 @@ section {
   height: 200px;
 }
 footer {
-  clear:both;;
+  clear: both;
   display: block;
-}
-
-a {
-  color: #00B7FF;
 }

@@ -3,21 +3,22 @@
   padding:0;
 }
 body {
-  padding: 50px;
-  font: 16px Georgia,serif;
+  font: 16px Georgia, serif;
 }
 
 #page-wrap {
   margin: 2% auto;
   color: white;
 }
+
 #page-wrap > .main {
   border: 1px solid #999;
   padding: 1%;
-  margin-bottom: 1px; color: black;
+  margin-bottom: 1px;
+  color: black;
 }
 
-section >div {
+section > div {
   padding: 20px;
 }
 header, nav, section {
@@ -30,7 +31,6 @@ footer {
 }
 nav span {
   margin: 0px 10px 0px 0px;
-}
-a {
-  color: #00B7FF;
+  width: 100%;
+  display: inline-block;
 }
