@@ -42,13 +42,13 @@ exports.answer = function(req, res) {
     res.render('quizes/answer',{quiz: req.quiz, respuesta: resultado, errors: []});
 };
 
-// GET /quizes/new
+//GET /quizes/new
 exports.new = function(req, res) {
-  var quiz = models.Quiz.build( //Crea objeto quiz
+  var quiz = models.Quiz.build( //crea objeto quiz
     {pregunta: "Pregunta", respuesta: "Respuesta", tema: "Tema"}
-  );
+			 );
 
-    res.render('quizes/new',{quiz: quiz, errors: []});
+  res.render('quizes/new', {quiz: quiz, errors: []});
 };
 
 // GET /quizes/create
@@ -74,15 +74,16 @@ exports.create = function(req, res) {
 
 // GET /quizes:id/edit
 exports.edit = function(req, res) {
-  var rquiz = req.quiz;   // autoload de instancia de quiz
+  var quiz = req.quiz;   // autoload de instancia de quiz
 
-    res.render('quizes/editr',{quiz: quiz,  errors: []});
+    res.render('quizes/edit',{quiz: quiz,  errors: []});
 };
 
 // GET /quizes/update
 exports.update = function(req, res) {
   req.quiz.pregunta = req.body.quiz.pregunta;
   req.quiz.respuesta = req.body.quiz.respuesta;
+  req.quiz.tema = req.body.quiz.tema;
 
   req.quiz
   .validate()
