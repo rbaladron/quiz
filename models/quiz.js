@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       respuesta: {
         type:DataTypes.STRING,
         validate: { notEmpty: {msg:"-> Falta Repuesta"}}
+      },
+       tema: {
+        type: DataTypes.STRING,
+        validate: { notEmpty: {msg: "-> Falta tema"}}
       }
     }
   );
