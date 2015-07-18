@@ -22,13 +22,13 @@ exports.index = function( req, res){
       where: ["upper(pregunta) like ?", buscar.toUpperCase()],
 			order: [['pregunta',  'ASC']]}
 		       ).then(function(quizes) {
-			 res.render('quizes/index', { quizes: quizes, errors: []});
+			 res.render('quizes/index.ejs', { quizes: quizes, errors: []});
 			}).catch(function(error)  {next(error);})
 
   } else {
     models.Quiz.findAll().then(
         function(quizes) {
-        res.render('quizes/index', { quizes: quizes, errors: []});
+        res.render('quizes/index.ejs', { quizes: quizes, errors: []});
         }
       ).catch(function(error){ next(error); })
 	  }
@@ -52,7 +52,7 @@ exports.answer = function(req, res) {
 exports.new = function(req, res) {
   var quiz = models.Quiz.build( //crea objeto quiz
     {pregunta: "Pregunta", respuesta: "Respuesta", tema: "Tema"}
-			 );
+	 );
 
   res.render('quizes/new', {quiz: quiz, errors: []});
 };
@@ -81,7 +81,7 @@ exports.create = function(req, res) {
 exports.edit = function(req, res) {
   var quiz = req.quiz;   // autoload de instancia de quiz
 
-    res.render('quizes/edit',{quiz: quiz,  errors: []});
+    res.render('quizes/edit', {quiz: quiz,  errors: []});
 };
 
 // PUT /quizes/update
