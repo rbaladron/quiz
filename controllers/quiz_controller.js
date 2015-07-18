@@ -66,7 +66,7 @@ exports.create = function(req, res) {
   .then(
     function(err){
       if (err) {
-        res.render('quizes/new', {quiz: quiz, errors: err.errors});
+        res.render('quizes/new', {quiz: quiz, errors: error: []});
       } else {
          // save: guarda en DB los campos pregunta y respuesta de quiz
         //  res.redirect: Redirección HTTP a lista de preguntas
