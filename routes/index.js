@@ -5,7 +5,7 @@ var quizController = require('../controllers/quiz_controller');
 
 // Página de entrada (home page)
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Quiz' });
+  res.render('index', { title: 'Quiz' , errors: []});
 });
 
 // Autoload de comando con :quizId
@@ -15,6 +15,12 @@ router.param('quizId', quizController.load);  //autoload :quizId
 router.get('/quizes', quizController.index);
 router.get('/quizes/:quizId(\\d+)', quizController.show);
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
+router.get('/quizes/new', quizController.new);
+router.post('/quizes/create', quiz.Controller.create);
+router.get('/quizes/:quizId(\\d+)/edit', quizController.edit);
+router.put('/quizes/:quizId(\\d+)', quizController.update);
+router.delete('/quizes/:quizId(\\d+)', quizController.destroy);
+
 
 /* GET página author */
 router.get('/author', function(req, res) {
