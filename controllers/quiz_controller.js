@@ -91,12 +91,10 @@ exports.update = function(req, res) {
   req.quiz.respuesta = req.body.quiz.respuesta;
   req.quiz.tema = req.body.quiz.tema;
 
-  req.quiz
-  .validate()
-  .then(
+  req.quiz.validate().then(
     function(err){
       if (err) {
-        res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
+        res.render('quizes/edit', {quiz: req.quiz,  errors: []});
       } else {
         req.quiz     // save: guarda campos pregunta y respuesta en DB
         .save( {fields: ["pregunta", "respuesta", "tema"]})
