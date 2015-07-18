@@ -58,7 +58,7 @@ exports.create = function(req, res) {
   quiz
   .validate()
   .then(
-    functon(err){
+    function(err){
       if (err) {
         res.render('quizes/new', {quiz: quiz, errors: err.errors});
       } else {
@@ -87,7 +87,7 @@ exports.update = function(req, res) {
   req.quiz
   .validate()
   .then(
-    functon(err){
+    function(err){
       if (err) {
         res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
       } else {
@@ -105,5 +105,5 @@ exports.update = function(req, res) {
 exports.destroy = function(req, res) {
   req.quiz.destroy().then(function() {
     res.redirect('/quizes');
-  }).catch(funcion(error){next(error)});
+  }).catch(function(error){next(error)});
 };
