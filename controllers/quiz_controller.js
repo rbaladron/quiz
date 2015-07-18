@@ -44,7 +44,7 @@ exports.answer = function(req, res) {
 
 // GET /quizes/new
 exports.new = function(req, res) {
-  var quiz = nodels.Quiz.build( //Crea objeto quiz
+  var quiz = models.Quiz.build( //Crea objeto quiz
     {pregunta: "Pregunta", respuesta: "Respuesta", tema: "Tema"}
   );
 
@@ -53,7 +53,7 @@ exports.new = function(req, res) {
 
 // GET /quizes/create
 exports.create = function(req, res) {
-  var quiz = nodels.Quiz.build( req.body.quiz );
+  var quiz = models.Quiz.build( req.body.quiz );
 
   quiz
   .validate()
