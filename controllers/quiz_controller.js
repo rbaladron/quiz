@@ -57,7 +57,7 @@ exports.new = function(req, res) {
   res.render('quizes/new', {quiz: quiz, errors: []});
 };
 
-// GET /quizes/create
+// POST /quizes/create
 exports.create = function(req, res) {
   var quiz = models.Quiz.build( req.body.quiz );
 
@@ -72,11 +72,10 @@ exports.create = function(req, res) {
         //  res.redirect: Redirección HTTP a lista de preguntas
         quiz
         .save({fields: ["pregunta", "respuesta", "tema"]})
-        .then(function(){res.redirect('/quizes')})
-      }
-    }
-  );
-};
+        .then(function(){ res.redirect('/quizes')});
+        }
+      });
+  };
 
 // GET /quizes:id/edit
 exports.edit = function(req, res) {
