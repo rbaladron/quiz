@@ -77,6 +77,7 @@ exports.create = function(req, res) {
       });
   };
 
+
 // GET /quizes:id/edit
 exports.edit = function(req, res) {
   var quiz = req.quiz;   // autoload de instancia de quiz
@@ -97,14 +98,12 @@ exports.update = function(req, res) {
       if (err) {
         res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
       } else {
-         // save: guarda en DB los campos pregunta y respuesta de quiz
-        //  res.redirect: Redirección HTTP a lista de preguntas
-        req.quiz
-        .save({fields: ["pregunta", "respuesta", "tema"]})
-        .then(function(){res.redirect('/quizes');});
-      }
+        req.quiz     // save: guarda campos pregunta y respuesta en DB
+        .save( {fields: ["pregunta", "respuesta", "tema"]})
+        .then( function(){ res.redirect('/quizes');});
+      }     // Redirección HTTP a lista de preguntas (URL relativo)
     }
-  );
+  ).catch(function(error){next(error)});
 };
 
 // DELETE /quizes/:id
