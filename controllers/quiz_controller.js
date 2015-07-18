@@ -110,3 +110,8 @@ exports.destroy = function(req, res) {
     res.redirect('/quizes');
   }).catch(function(error){next(error)});
 };
+
+// get /quizes/creditos/author
+exports.author = function(req, res) {
+  res.render('quizes/creditos/author', {autor: 'Autor: ', errors: []});
+};

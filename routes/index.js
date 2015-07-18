@@ -20,11 +20,6 @@ router.post('/quizes/create',               quizController.create);
 router.get('/quizes/:quizId(\\d+)/edit',    quizController.edit);
 router.put('/quizes/:quizId(\\d+)',         quizController.update);
 router.delete('/quizes/:quizId(\\d+)',      quizController.destroy);
-
-
-/* GET página author */
-router.get('/author', function(req, res) {
-  res.render('author');
-})
-
+// Créditos
+router.get('/quizes/creditos/author',  quizController.author);
 module.exports = router;
