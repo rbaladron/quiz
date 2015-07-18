@@ -15,17 +15,23 @@ exports.load = function(req, res, next, quizId) {
 // GET /quizes
 exports.index = function( req, res){
 
-	if(req.query.search){
-		var search = '%' + req.query.search.replace(/\s/gi, "%") + '%';
-	}
-  else {
-    var search = '%';
-  }
-	models.Quiz.findAll({
-    where: ["lower(pregunta) like lower(?)", search],
-    order: 'pregunta ASC'}).then(function(quizes) {
-      res.render('quizes/index', {quizes: quizes, errors: []});
-	}).catch(function(error) {next(error);});
+  var buscar = ("%" + req.query.search + "%").replace(/ /g, '%');
+
+  if(req.query.search) {
+    models.Quiz.findAll({
+      where: ["upper(pregunta) like ?", buscar.toUpperCase()],
+			order: [['pregunta',  'ASC']]}
+		       ).then(function(quizes) {
+			 res.render('quizes/index', { quizes: quizes, errors: []});
+			}).catch(function(error)  {next(error);})
+
+  } else {
+    models.Quiz.findAll().then(
+        function(quizes) {
+        res.render('quizes/index', { quizes: quizes, errors: []});
+        }
+      ).catch(function(error){ next(error); })
+	  }
 };
 
 // GET /quizes/:id
@@ -79,7 +85,7 @@ exports.edit = function(req, res) {
     res.render('quizes/edit',{quiz: quiz,  errors: []});
 };
 
-// GET /quizes/update
+// PUT /quizes/update
 exports.update = function(req, res) {
   req.quiz.pregunta = req.body.quiz.pregunta;
   req.quiz.respuesta = req.body.quiz.respuesta;
@@ -96,7 +102,7 @@ exports.update = function(req, res) {
         //  res.redirect: Redirección HTTP a lista de preguntas
         req.quiz
         .save({fields: ["pregunta", "respuesta", "tema"]})
-        .then(function(){res.redirect('/quizes')})
+        .then(function(){res.redirect('/quizes');});
       }
     }
   );
