@@ -1,3 +1,24 @@
+// MW para controlar la expiracion de la sesion
+exports.autoLogout = function(req, res, next) {
+  // Se comprueba del tiempo para el autologout
+  if (req.session.user) {
+    var ultimaSolicitud = (req.session.user.transactionTime) || 0;
+    var fecha = new Date();
+
+    // Se comprueba que no hayan pasado más de dos minutos
+    if (Number(fecha.getTime()) - Number(ultimaSolicitud) > 120000 && Number(ultimaSolicitud) > 0) {
+      // Se elimina la sessión y se continua
+      delete req.session.user;
+      next();
+    } else {
+      // Se guarda el tiempo d enuevo
+      req.session.user.transactionTime = fecha.getTime();
+      next();
+    }
+  } else
+    next();
+}
+
 // Middleware de autorización de accesos HTTP restringidos
 exports.loginRequired = function(req, res, next) {
   if (req.session.user) {
