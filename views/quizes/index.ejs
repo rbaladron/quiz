@@ -1,35 +1,54 @@
-<form action="/quizes" id="searchQuestion" method="GET">
-  <input name="search" placeholder="Buscar pregunta" type="text"/>
-  <input type="submit" value="Enviar"/>
-</form>
 
-<table>
-  <% var i; for (i=0; i < quizes.length; i++) { %>
-    <tr>
-      <td>
-        <a href="quizes/<%= quizes[i].id %>">
-          <%= quizes[i].pregunta %>
-        </a>
-      </td>
-      <td>
-        <%= quizes[i].tema %>
-      </td>
-      <td>
-        <a href="quizes/<%= quizes[i].id %>/edit">
-          <button>Editar</button>
-        </a>
-      </td>
-      <td>
-        <form action="quizes/<%= quizes[i.id] %>?_method=delete" method="post">
-          <button onclick="return confirm('Borrar: <%= quizes[i].pregunta %>');" type="submit">
-            borrar
-          </button>
-        </form>
-      </td>
-    </tr>
-  <% } %>
-</table>
-<p>
-  <a href="/quizes/new">
-    <button type="button">Crear pregunta</button>
-  </a>
+ <div id="tabla">
+  <table id="preguntas">
+    <% var i; for (i=0; i < quizes.length; i++) { %>
+    <thead>
+      <tr>
+        <th><span>Preguntas</span></th>
+        <th><span>Temas</span></th>
+        <th><span>Editar</span></th>
+        <th><span>Borrar</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="izquierda">
+          <a href="quizes/<%= quizes[i].id %>">
+            <%= quizes[i].pregunta %>
+          </a>
+        </td>
+        <td class="izquierda">
+          <%= quizes[i].tema %>
+        </td>
+        <td class="izquierda">
+          <a href="quizes/<%= quizes[i].id %>/edit">
+            <button>Editar</button>
+          </a>
+        </td>
+        <td class="izquierda">
+          <form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
+            <button onclick="return confirm('Borrar: <%= quizes[i].pregunta %>');" type="submit">
+              borrar
+            </button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+      <tr>
+        <td class="izquierda">
+          <form action="/quizes" id="searchQuestion" method="GET">
+            <input name="search" placeholder="Buscar pregunta" type="text"/>
+            <input type="submit" value="Enviar"/>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td class="izquierda">
+          <a href="/quizes/new">
+            <button type="button">Crear pregunta</button>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
