@@ -1,7 +1,6 @@
 
  <div id="tabla">
   <table id="preguntas">
-    <% var i; for (i=0; i < quizes.length; i++) { %>
     <thead>
       <tr>
         <th><span>Preguntas</span></th>
@@ -10,6 +9,7 @@
         <th><span>Borrar</span></th>
       </tr>
     </thead>
+    <% var i; for (i=0; i < quizes.length; i++) { %>
     <tbody>
       <tr>
         <td class="izquierda">
@@ -41,8 +41,6 @@
             <input type="submit" value="Enviar"/>
           </form>
         </td>
-      </tr>
-      <tr>
         <td class="izquierda">
           <a href="/quizes/new">
             <button type="button">Crear pregunta</button>
