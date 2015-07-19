@@ -1,15 +1,21 @@
-
- <div id="tabla">
-  <table id="preguntas">
-    <thead>
-      <tr>
-        <th><span>Preguntas</span></th>
-        <th><span>Temas</span></th>
-        <th><span>Editar</span></th>
-        <th><span>Borrar</span></th>
-      </tr>
-    </thead>
-    <% var i; for (i=0; i < quizes.length; i++) { %>
+<table id="preguntas">
+  <thead>
+    <tr>
+      <th>
+        <span>Preguntas</span>
+      </th>
+      <th>
+        <span>Temas</span>
+      </th>
+      <th>
+        <span></span>
+      </th>
+      <th>
+        <span></span>
+      </th>
+    </tr>
+  </thead>
+  <% var i; for (i=0; i < quizes.length; i++) { %>
     <tbody>
       <tr>
         <td class="izquierda">
@@ -26,7 +32,7 @@
           </a>
         </td>
         <td class="izquierda">
-          <form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
+          <form action="quizes/<%= quizes[i].id %>?_method=delete" method="post">
             <button onclick="return confirm('Borrar: <%= quizes[i].pregunta %>');" type="submit">
               borrar
             </button>
@@ -34,19 +40,18 @@
         </td>
       </tr>
     <% } %>
-      <tr>
-        <td class="izquierda">
-          <form action="/quizes" id="searchQuestion" method="GET">
-            <input name="search" placeholder="Buscar pregunta" type="text"/>
-            <input type="submit" value="Enviar"/>
-          </form>
-        </td>
-        <td class="izquierda">
-          <a href="/quizes/new">
-            <button type="button">Crear pregunta</button>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+    <tr>
+      <td class="izquierda">
+        <form action="/quizes" id="searchQuestion" method="GET">
+          <input name="search" placeholder="Buscar pregunta" type="text"/>
+          <input type="submit" value="Enviar"/>
+        </form>
+      </td>
+      <td class="izquierda">
+        <a href="/quizes/new">
+          <button type="button">Crear pregunta</button>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
