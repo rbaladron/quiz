@@ -1,3 +1,0 @@
-$(function(){
-  $('#preguntas').tablesorter(); 
-});
