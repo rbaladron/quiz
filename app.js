@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require('method-override');
 var session = require('express-session');
-
+var sessionController = require('./controllers/session_controller');
 var routes = require('./routes/index');
 var app = express();
 
