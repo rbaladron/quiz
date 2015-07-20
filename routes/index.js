@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+// Controladores
 var quizController = require('../controllers/quiz_controller');
 var commentController = require('../controllers/comment_controller');
 var sessionController = require('../controllers/session_controller');
@@ -21,6 +22,7 @@ router.param('commentId', commentController.load); //autoload :commentId
 router.get('/login', sessionController.new);        // Formulario login
 router.post('/login', sessionController.create);    // Crear sesión
 router.get('/logout', sessionController.destroy);   // Destruir sesión
+router.get('/autoLogout', sessionController.autoLogout); // Autodesconexión
 
 // Definición de rutas de /quizes
 router.get('/quizes', quizController.index);

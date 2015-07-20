@@ -28,7 +28,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// Control de expiracion de la sesion
+// Control de caducidad de la sesion
 app.use(sessionController.autoLogout);
 
 // Helpers dinámicos:
