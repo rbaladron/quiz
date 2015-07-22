@@ -43,7 +43,7 @@ exports.calculate = function(req, res, next) {
 
 
 exports.show = function(req, res) {
-  res.render('estadisticas/estadisticas.ejs', {
+  res.render('statistics/statistics.ejs', {
     statistics: statistics,
     errors: []
   })
