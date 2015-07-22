@@ -43,7 +43,7 @@ exports.create = function(req, res) {
         if (err) {
           res.render('comments/new.ejs'), {
             comment: comment,
-            quizid: req.params.QuizId,
+            quizid: req.params.quizId,
             errors: err.errors
           };
         } else {
