@@ -38,8 +38,7 @@ app.use(function(req, res, next) {
   if (!req.path.match(/\/login|\/logout/)) {
     req.session.redir = req.path;
   }
-  // Control de expiracion de la sesion
-  app.use(sessionController.autoLogout);
+
   // Hacer visible req.sesssion en las vistas
   res.locals.session = req.session;
   next();

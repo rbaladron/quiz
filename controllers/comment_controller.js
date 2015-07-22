@@ -1,7 +1,7 @@
 var models = require('../models/models.js');
 
 // Autoload: id de comentarios
-exports.load = function(req, res, next, commentID) {
+exports.load = function(req, res, next, commentId) {
   models.Comment.find({
     where: {
       id: Number(commentId)

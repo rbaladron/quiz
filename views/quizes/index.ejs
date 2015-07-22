@@ -23,10 +23,10 @@
             <%= quizes[i].pregunta %>
           </a>
         </td>
-        <% if(session.user) {%>
           <td class="izquierda">
             <%= quizes[i].tema %>
           </td>
+        <% if(session.user) {%>
           <td class="izquierda">
             <a href="quizes/<%= quizes[i].id %>/edit">
               <button>Editar</button>

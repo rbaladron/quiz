@@ -24,6 +24,7 @@ router.post('/login', sessionController.create);    // Crear sesión
 router.get('/logout', sessionController.destroy);   // Destruir sesión
 router.get('/autoLogout', sessionController.autoLogout); // Autodesconexión
 
+
 // Definición de rutas de /quizes
 router.get('/quizes', quizController.index);
 router.get('/quizes/:quizId(\\d+)', quizController.show);
@@ -40,7 +41,7 @@ router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
 router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.loginRequired, commentController.publish);
 
 
-// Créditos
+// Definición de rutas de Créditos
 router.get('/quizes/creditos/author', quizController.author);
 
 module.exports = router;
