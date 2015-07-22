@@ -5,6 +5,7 @@ var router = express.Router();
 var quizController = require('../controllers/quiz_controller');
 var commentController = require('../controllers/comment_controller');
 var sessionController = require('../controllers/session_controller');
+var statisticController = require('../controllers/estatistic_controller');
 
 // Página de entrada (home page)
 router.get('/', function(req, res, next) {
@@ -43,5 +44,8 @@ router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionCon
 
 // Definición de rutas de Créditos
 router.get('/quizes/creditos/author', quizController.author);
+
+// Definición de rutas de /statistics
+router.get('/quizes/statistics', statisticController.calculate, statisticController.show );
 
 module.exports = router;

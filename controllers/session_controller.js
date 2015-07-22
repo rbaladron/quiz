@@ -11,7 +11,7 @@ exports.autoLogout = function(req, res, next) {
       delete req.session.user;
       next();
     } else {
-      // Se guarda el tiempo d enuevo
+      // Se guarda el tiempo de nuevo
       req.session.user.transactionTime = fecha.getTime();
       next();
     }

@@ -1,0 +1,42 @@
+    </p> <br>
+    <table id="estadisticas" title="Estadísticas del proyecto">
+      <thead>
+        <tr>
+          <th>
+            <span>Total Preguntas</span>
+          </th>
+          <th>
+            <span>Total Comentarios</span>
+          </th>
+          <th>
+            <span>Total Preguntas sin Comentarios</span>
+          </th>
+          <th>
+            <span>Total Preguntas con Comentarios</span>
+          </th>
+          <th>
+            <span>Comentarios sin publicar</span>
+          </th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <td class="izquierda">
+                <%= statistics.quizes %>
+              </a>
+            </td>
+              <td class="izquierda">
+                <%= statistics.comments %>
+              </td>
+              <td class="izquierda">
+                <%= statistics.quizes - statistics.commentedQuizes %>
+              </td>
+              <td class="izquierda">
+                <%= statistics.commentedQuizes %>
+              </td>
+              <td class="izquierda">
+                <%= statistics.commentsUnpublished %>
+              </td>
+          </tr>
+      </tbody>
+    </table>
