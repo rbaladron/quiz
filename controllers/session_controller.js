@@ -1,4 +1,4 @@
-// MW para controlar la expiracion de la sesion
+// MW para controlar la caducidad de la sesion
 exports.autoLogout = function(req, res, next) {
   // Se comprueba del tiempo para el autologout
   if (req.session.user) {
