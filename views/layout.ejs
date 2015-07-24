@@ -17,45 +17,7 @@
 
   <body>
 
-    <div class="layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">Quiz: El juego de las preguntas</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <nav class="mdl-navigation">
-            <% if (!session.user) { %>
-              <a class="mdl-navigation__link" href='/login'>Login</a>
-            <% } else { %>
-              <%= session.user.username %> <a class="mdl-navigation__link" href="/logout">Logout</a>
-            <% } %>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Quiz</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="/">Inicio</a>
-          <a class="mdl-navigation__link" href="/quizes">Preguntas</a>
-          <a class="mdl-navigation__link" href="/quizes/creditos/author">Créditos</a>
-          <a class="mdl-navigation__link" href="/quizes/statistics">Estadísticas</a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content">
-        <% if (errors.length) { %>
-          <span id="ErrorMsg">
-            Corregir errores:<br/>
-            <% for (var i in errors) { %>
-              <span> <%= errors[i].message %> </span><br/>
-            <% } %>
-          </span>
-        <% } %>
-        <%- body %>
-      </main>
-    </div>
-    <!--<div id="page-wrap">
+    <div id="page-wrap">
       <header class="main" id="h1">
           <% if (!session.user) { %>
             <span class="right"><a href='/login'>Login</a></span>
@@ -92,7 +54,7 @@
         <%- body %>
       </section>
     </div> -->
-    <!--  <footer class="main" id="f1">
+  <footer class="main" id="f1">
         <p>
           <span>
             <a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a>
@@ -103,15 +65,6 @@
             <a href="https://github.com/rbaladron/quiz.git">Página del proyecto en Github</a>
           </span>
         </p>
-      </footer>-->
-      <footer class="mdl-mini-footer" id="f1">
-        <div class="mdl-mini-footer--left-section">
-          <div class="mdl-logo">Quiz</div>
-          <ul class="mdl-mini-footer--link-list">
-            <li><a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a></li>
-            <li><a href="https://github.com/rbaladron/quiz.git">Página del proyecto en Github</a></li>
-          </ul>
-        </div>
       </footer>
 
 
