@@ -1,4 +1,4 @@
-body {
+/*body {
   background: #999;
 }
 #page-wrap:after {
@@ -17,7 +17,7 @@ section {
   width: 80%;
   height: 200px;
 }
-/*footer {
+footer {
   clear: both;
   display: block;
 }*/
