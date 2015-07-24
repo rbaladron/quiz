@@ -36,7 +36,7 @@ nav span {
 .demo-card-image.mdl-card {
     width: 256px;
     height: 256px;
-    background: url('../assets/demos/image_card.jpg') center / cover;
+    background: url('https://lh3.googleusercontent.com/-uDiMYVJQUuo/AAAAAAAAAAI/AAAAAAAAAb4/MxEooo8NdSM/s120-c/photo.jpg') center / cover;
   }
   .demo-card-image > .mdl-card__actions {
     height: 52px;
