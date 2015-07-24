@@ -1,4 +1,5 @@
-/* * {
+/*
+* {
   margin: 0;
   padding: 0;
 }
@@ -32,4 +33,14 @@ nav span {
 #ErrorMsgs {
   color: #f61;
   font-size: smaller;
-}/*
+}
+*/
+.layout-transparent {
+  background: url('../assets/demos/transparent.jpg') center / cover;
+}
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
