@@ -16,27 +16,27 @@ exports.calculate = function(req, res, next) {
    // preguntas
     .then(function(numQuizes) {
       statistics.quizes = numQuizes;
-      return models.Quiz.count();
+      return models.Comment.count();
     })
     // comentarios
     .then(function(numComments) {
       statistics.comments = numComments;
-      return models.Comment.count();
+      return models.Comment.CountUnPublished();
     })
     // comentarios sin publicar
     .then(function(numUnpublished) {
       statistics.commentsUnpublished = numUnpublished;
-      return models.Comment.CountUnPublished();
+      return models.Comment.CountCommentedQuizes();
     })
     // preguntas con comentarios
     .then(function(numCommented) {
       statistics.commentedQuizes = numCommented;
-      return models.CountCommentedQuizes();
+      return (models.Quiz.count() - models.CountCommentedQuizes());
     })
     // preguntas sin comentarios
     .then(function(numUnCommented) {
       statistics.commentsUncomented = numUnCommented;
-      return (models.Quiz.count() - models.CountCommentedQuizes());
+      //return (models.Quiz.count() - models.CountCommentedQuizes());
     })
     .catch(function(err) {
       errors.push(err);
