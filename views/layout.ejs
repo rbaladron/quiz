@@ -27,7 +27,7 @@
           <h2>Quiz: El juego de las preguntas</h2>
       </header>
 
-      <nav class="main" id="n1" role="navigation">
+    <!--  <nav class="main" id="n1" role="navigation">
         <span>
           <a href="/">Inicio</a>
         </span>
@@ -40,7 +40,20 @@
         <span>
           <a href="/quizes/statistics">Estadísticas</a>
         </span>
-      </nav>
+      </nav> -->
+      <!-- Left aligned menu below button -->
+      <button id="demo-menu-lower-left"
+              class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+          for="demo-menu-lower-left">
+        <li class="mdl-menu__item"><a href="/">Inicio</a></li>
+        <li class="mdl-menu__item"><a href="/quizes">Preguntas</a></li>
+        <li class="mdl-menu__item"><a href="/quizes/creditos/author">Créditos</a></li>
+        <li class="mdl-menu__item"><a href="/quizes/statistics">Estadísticas</a></li>
+      </ul>
 
       <section class="main" id="s1">
         <% if (errors.length) { %>
@@ -54,7 +67,7 @@
         <%- body %>
       </section>
 
-  <footer class="main" id="f1">
+    <!--  <footer class="main" id="f1">
         <p>
           <span>
             <a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a>
@@ -65,8 +78,17 @@
             <a href="https://github.com/rbaladron/quiz.git">Página del proyecto en Github</a>
           </span>
         </p>
+      </footer> -->
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer--left-section">
+          <div class="mdl-logo">Title</div>
+          <ul class="mdl-mini-footer--link-list">
+            <li><<a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a></li>
+            <li><<a href="https://github.com/rbaladron/quiz.git">Página del proyecto en Github</a></li>
+          </ul>
+        </div>
       </footer>
 
-    </div> 
+    </div>
   </body>
 </html>
