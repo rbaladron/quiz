@@ -17,9 +17,9 @@
           <th>
             <span>Total Preguntas <br/>con Comentarios</span>
           </th>
-          <!--<th>
+          <th>
             <span>Comentarios <br/>sin publicar</span>
-          </th>-->
+          </th>
         </tr>
       </thead>
         <tbody>
@@ -32,15 +32,15 @@
                 <%= statistics.comments %>
               </td>
               <td class="izquierda">
-                <%= statistics.no_commented %>
+                <%= statistics.unCommented %>
               </td>
               <td class="izquierda">
-                <%= statistics.commented_quizes %>
-                <%= (statistics.average_comments)%>
+                <%= statistics.commentedQuizes %>
               </td>
-            <!--  <td class="izquierda">
-                <%= statistics.no_commented %>
-              </td> -->
+              <td class="izquierda">
+                <%= statistics.commentsUnpublished %>
+                (<%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments) %>
+              </td>
           </tr>
       </tbody>
     </table>
