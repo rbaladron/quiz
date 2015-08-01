@@ -12,26 +12,22 @@ var errors = [];
 
 exports.calculate = function(req, res, next) {
   models.Quiz.count()
-   // preguntas
-    .then(function(numQuizes) {
+    .then(function(numQuizes) { // número de preguntas
       statistics.quizes = numQuizes;
       return models.Comment.count();
     })
-    // comentarios
-    .then(function(numComments) {
+    .then(function(numComments) { // número de comentarios
       statistics.comments = numComments;
-      return models.Comment.CountUnPublished();
+      return models.Comment.countUnpublished();
     })
-    // comentarios sin publicar
-    .then(function(numUnpublished) {
+    .then(function(numUnpublished) { // número de comentarios sin publicar
       statistics.commentsUnpublished = numUnpublished;
-      return models.Comment.CountCommentedQuizes();
+      return models.Comment.countCommentedQuizes();
     })
-    // preguntas con comentarios
-    .then(function(numCommented) {
+    .then(function(numCommented) { // número de preguntas con comentario
       statistics.commentedQuizes = numCommented;
+      return models.CountUnCommentedQuizes();
     })
-
     .catch(function(err) {
       errors.push(err);
     })
