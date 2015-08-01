@@ -32,14 +32,14 @@
                 <%= statistics.comments %>
               </td>
               <td class="izquierda">
-                <%= statistics.quizes - statistics.commentedQuizes %>
+                <%= statistics.quizes - statistics.numCommented %>
               </td>
               <td class="izquierda">
-                <%= statistics.commentedQuizes %>
+                <%= statistics.numCommented %>
               </td>
               <td class="izquierda">
                 <%= statistics.commentsUnpublished %>
-                (<%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments.toFixed(2)+'%':'100%' %>)
+                <%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments.toFixed(2)+'%':'100%' %>
               </td>
           </tr>
       </tbody>
