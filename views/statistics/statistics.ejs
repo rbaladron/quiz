@@ -1,4 +1,17 @@
-</p>
+
+<h4>Bienvenido al Proyecto </h3>
+<p> Estadisticas </p> <br>
+<p> Total Preguntas: <%= statistics.quizes %></p>
+<p> Total Comentarios:  <%= statistics.comments %> </p> <br>
+<!--
+<p> Total Preguntas Sin Comentarios:<%= statistics.quizes - statistics.commentedQuizes %>
+<p> Total Pregunta con comentarios:  <%= statistics.commentedQuizes %>
+ </p> <br>
+<p> Comentarios sin publicar: <%= statistics.commentsUnpublished %>
+  (<%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments).toFixed(2)+'%':'100%' %>)
+ -->
+</p> <br>
+<!--</p>
 <br>
 <table id="estadisticas">
 <thead>
@@ -40,13 +53,13 @@
   <td class="izquierda">
     <%= statistics.quizes - statistics.commentedQuizes %>
   </td>
-  <!--<td class="izquierda">
+  <td class="izquierda">
     <%= statistics.commentedQuizes %>
   </td>
   <td class="izquierda">
     <%= statistics.commentsUnpublished %>
     <%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments.toFixed(2)+'%':'100%' %>
-  </td>
-</tr>-->
+  </td
+</tr>
 </tbody>
-</table>
+</table> -->
