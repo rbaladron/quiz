@@ -1,46 +1,52 @@
-    </p> <br>
-    <table id="estadisticas">
-      <thead>
-        <caption>
-          Estadísticas de Quiz
-        </caption>
-        <tr>
-          <th>
-            <span>Total <br/>Preguntas</span>
-          </th>
-          <th>
-            <span>Total <br/>Comentarios</span>
-          </th>
-          <th>
-            <span>Total Preguntas <br/>sin Comentarios</span>
-          </th>
-          <th>
-            <span>Total Preguntas <br/>con Comentarios</span>
-          </th>
-          <th>
-            <span>Comentarios <br/>sin publicar</span>
-          </th>
-        </tr>
-      </thead>
-        <tbody>
-          <tr>
-            <td class="izquierda">
-                <%= statistics.quizes %>
-              </a>
-            </td>
-              <td class="izquierda">
-                <%= statistics.comments %>
-              </td>
-              <td class="izquierda">
-                <%= statistics.quizes - statistics.numCommented %>
-              </td>
-              <td class="izquierda">
-                <%= statistics.numCommented %>
-              </td>
-              <td class="izquierda">
-                <%= statistics.commentsUnpublished %>
-                <%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments.toFixed(2)+'%':'100%' %>
-              </td>
-          </tr>
-      </tbody>
-    </table>
+</p>
+<br>
+<table id="estadisticas">
+<thead>
+  <caption>
+    Estadísticas de Quiz
+  </caption>
+  <tr>
+    <th>
+      <span>Total
+        <br/>Preguntas</span>
+    </th>
+    <th>
+      <span>Total
+        <br/>Comentarios</span>
+    </th>
+    <th>
+      <span>Total Preguntas
+        <br/>sin Comentarios</span>
+    </th>
+    <th>
+      <span>Total Preguntas
+        <br/>con Comentarios</span>
+    </th>
+    <th>
+      <span>Comentarios
+        <br/>sin publicar</span>
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="izquierda">
+      <%= statistics.quizes %>
+    </a>
+  </td>
+  <td class="izquierda">
+    <%= statistics.comments %>
+  </td>
+  <td class="izquierda">
+    <%= statistics.quizes - statistics.commentedQuizes %>
+  </td>
+  <td class="izquierda">
+    <%= statistics.commentedQuizes %>
+  </td>
+  <td class="izquierda">
+    <%= statistics.commentsUnpublished %>
+    <%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments.toFixed(2)+'%':'100%' %>
+  </td>
+</tr>
+</tbody>
+</table>

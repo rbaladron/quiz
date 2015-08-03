@@ -27,7 +27,7 @@ exports.calculate = function (req, res, next) {
     })
    .then(function (numCommented) { // número de preguntas con comentario
      statistics.commentedQuizes = numCommented;
-    return models.CountUnCommentedQuizes();
+    return models.Comment.CountUnCommentedQuizes();
     })
   .catch(function (err) { errors.push(err); })
   .finally(function () {

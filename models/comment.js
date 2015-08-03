@@ -18,6 +18,15 @@ module.exports = function(sequelize, DataTypes) {
     }, {
       classMethods: {
 
+        // Cuenta el total de los quizes no comentados
+        CountUnCommentedQuizes: function() {
+          return this.aggregate('QuizId', 'count', {
+            'distinct': false
+          }).then('success', function(count) {
+            return count;
+          })
+        },
+
         // Cuenta el total de los comentarios no publicados
         CountUnPublished: function() {
           return this.count('QuizId', {
