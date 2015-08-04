@@ -1,46 +1,50 @@
 var models = require('../models/models.js');
 
-var statistics = {
-  quizes: 0,
-  comments: 0,
-  commentsUnpublished: 0,
-  commentedQuizes: 0,
-  commentsUncomented: 0
-};
+// GET /quizes/statistics
+exports.show = function(req, res, next) {
 
-var errors = [];
+  var statistics = {
+    preguntas: 0,
+    comentarios: 0,
+    mediaComentariosPregunta: 0.0,
+    preguntasSinComentarios: 0,
+    preguntasConComentarios: 0
+  };
 
+  // Preguntas
+  models.Quiz.count().then(function(numQuest) {
+    statistics.preguntas = numQuest;
+    // Comentarios, número y media
+    models.Comment.count().then(function(numComm) {
+      statistics.comentarios = numComm;
+      statistics.mediaComentariosPregunta = statistics.preguntas ? (statistics.comentarios / statistics.preguntas).toFixed(2) : 0;
+      // Preguntas con comentarios y sin comentarios
+      models.Quiz.count({
+          distinct: true,
+          include: [{
+            model: models.Comment
+          }],
+          where: ['"Comments"."QuizId" IS NOT NULL']
+        })
+        .then(function(pregConCom) {
+          if (!isNaN(pregConCom)) {
+            statistics.preguntasConComentarios = pregConCom;
+            statistics.preguntasSinComentarios = statistics.preguntas - stats.preguntasConComentarios;
+          }
+          //Visualiza la página de las estadísticas
+          res.render('statistics/statistics', {
+            statistics: statistics,
+            errors: []
+          });
 
-exports.calculate = function(req, res, next) {
-  models.Quiz.count()
-    .then(function(numQuizes) { // número de preguntas
-      statistics.quizes = numQuizes;
-      return models.Comment.count();
+        }).catch(function(error) {
+          next(error)
+        })
+    }).catch(function(error) {
+      next(error)
     })
-    .then(function(numComments) { // número de comentarios
-      statistics.comments = numComments;
-      return models.Comment.countUnpublished();
-    })
-    .then(function(numUnpublished) { // número de comentarios sin publicar
-      statistics.commentsUnpublished = numUnpublished;
-      return models.Comment.countCommentedQuizes();
-    })
-    .then(function(numCommented) { // número de preguntas con comentario
-      statistics.commentedQuizes = numCommented;
-      return models.CountUnCommentedQuizes();
-    })
-    .catch(function(err) {
-      errors.push(err);
-    })
-    .finally(function() {
-      next();
-    });
-};
-
-
-exports.mostrar = function(req, res) {
-  res.render('statistics/statistics.ejs', {
-    statistics: statistics,
-    errors: []
+  }).catch(function(error) {
+    next(error)
   });
+
 };
