@@ -42,5 +42,5 @@ exports.mostrar = function(req, res) {
   res.render('statistics/statistics.ejs', {
     statistics: statistics,
     errors: []
-  })
+  });
 };
