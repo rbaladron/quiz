@@ -29,7 +29,7 @@ exports.show = function(req, res, next) {
         .then(function(pregConCom) {
           if (!isNaN(pregConCom)) {
             statistics.preguntasConComentarios = pregConCom;
-            statistics.preguntasSinComentarios = statistics.preguntas - stats.preguntasConComentarios;
+            statistics.preguntasSinComentarios = statistics.preguntas - statistics.preguntasConComentarios;
           }
           //Visualiza la página de las estadísticas
           res.render('statistics/statistics', {
